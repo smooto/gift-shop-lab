@@ -5,13 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Survey</title>
 </head>
 
 <body>
-
-    <script type="module" src="app.js"></script>
+    <header>
+        <h1>Survey!!!!!</h1>
+    </header>
+    <main>
+        <p>
+            Which of these three idiot, garbage products are you least unlikely to buy?
+        </p>
+        <p>
+            <span id="choices-remaining">25</span>/25 choices remaining
+        </p>
+        <div id="product-choices">
+            <label>
+                <p>Cute-thulhu</p>
+                <input type="radio" name="product" />
+                <img src="./assets/cthulhu.jpg" />
+            </label>
+            <label>
+                <p>Bubblegum</p>
+                <input type="radio" name="product" />
+                <img src="./assets/bubblegum.jpg" />
+            </label>
+            <label>
+                <p>USB</p>
+                <input type="radio" name="product" />
+                <img src="./assets/usb.gif" />
+            </label>
+        </div>
+        <button id="submit-choice">Submit choice</button>
+    </main>
+    <script type="module" src="./app.js"></script>
 </body>
 
 </html>
