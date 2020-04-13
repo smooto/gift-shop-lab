@@ -1,4 +1,4 @@
-const allProducts = [
+const listOfAllProducts = [
     {
         id: 'P01',
         image: 'assets/bag.jpg',
@@ -101,4 +101,4 @@ const allProducts = [
     }
 ];
 
-export default allProducts;
+export default listOfAllProducts;
