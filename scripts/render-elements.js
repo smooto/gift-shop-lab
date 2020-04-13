@@ -29,15 +29,13 @@ function createInputElement(productId) {
     return label;
 }
 
-export function renderAllInputs(idOne, idTwo, idThree) {
+export function renderAllInputs(arrayOfIds) {
     // get container div from DOM
     const containerDiv = document.getElementById('product-choices');
 
-    // call function to create inputs
-    const inputOne = createInputElement(idOne);
-    const inputTwo = createInputElement(idTwo);
-    const inputThree = createInputElement(idThree);
-
-    // append inputs to container
-    containerDiv.append(inputOne, inputTwo, inputThree);
+    // call function for each product ID to create inputs
+    arrayOfIds.forEach(id => {
+        const inputElement = createInputElement(id);
+        containerDiv.appendChild(inputElement);
+    });
 }
