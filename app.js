@@ -1,7 +1,8 @@
 import listOfAllProducts from './data/product-list.js';
+import findById from './scripts/find-by-id.js';
 import { renderAllInputs } from './scripts/render-elements.js';
 import { selectRandomProducts } from './scripts/select-random.js';
-import { initSessionData } from './scripts/utils.js';
+import { storeProductViews } from './scripts/utils.js';
 
 // get DOM elements
 const containerDiv = document.getElementById('product-choices'); // container for input elements
@@ -28,7 +29,7 @@ console.log(randomIds);
 renderAllInputs(randomIds, containerDiv);
 
 // add all IDs to productsViewed
-initSessionData(randomIds, sessionData);
+storeProductViews(randomIds, sessionData);
 console.log('products viewed:\n' + sessionData);
 
 ////////////////////
@@ -37,23 +38,18 @@ console.log('products viewed:\n' + sessionData);
 submitButton.addEventListener('click', () => {
     // determine which product was selected, and retrieve its ID
     const selectedInput = document.querySelector('input[type=radio]:checked');
-    
-    // if nothing selected, return error
+
+    ////// if nothing selected, return error
     if (selectedInput === null) { alert('Choose a product!'); }
-    
-    // otherwise, store value as product ID
+
+    ////// otherwise, store value as product ID
     const selectedProductID = selectedInput.value;
     console.log('selected product ID:\n' + selectedProductID);
 
-    // check whether selected product is present in productsSelected array
-    // if (productsSelected.includes(selectedProductID)) { selectedProductID.timesPicked++ }
-    // else {
-
-    // }
-
-    // add product to productsSelected
-    // productsSelected.push(selectedProductID);
-    // console.log(productsSelected);
+    // increment selected product in sessionData by 1
+    const selectedProductData = findById(sessionData, selectedProductID);
+    selectedProductData.selections++;
+    console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
 
     // increment choiceCounter
     choiceCounter++;
@@ -68,9 +64,8 @@ submitButton.addEventListener('click', () => {
     const randomIds = selectRandomProducts(listOfAllProducts);
     renderAllInputs(randomIds, containerDiv);
 
-    // // add all IDs to productsViewed
-    // randomIds.forEach(id => {
-    //     productsViewed.push(id);
-    // });
-    // console.log('products viewed:\n' + productsViewed);
+    // store newly-generated products in session data
+    storeProductViews(randomIds, sessionData);
+
+    console.log(sessionData);
 });

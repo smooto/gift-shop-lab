@@ -11,7 +11,7 @@ function createInputElement(productId) {
     const input = document.createElement('input');
     input.type = 'radio';
     input.name = 'product';
-    input.value = productId;
+    input.value = `${productId}`;
 
     // create & populate `p` to reflect product name
     const p = document.createElement('p');

@@ -1,6 +1,6 @@
 import findById from './find-by-id.js';
 
-export function initSessionData(arrayOfIds, arrayOfSessionData) {
+export function storeProductViews(arrayOfIds, arrayOfSessionData) {
     arrayOfIds.forEach(productId => {
         // search session data for product & store result (either null or object)
         let targetProduct = findById(arrayOfSessionData, productId);
@@ -13,11 +13,10 @@ export function initSessionData(arrayOfIds, arrayOfSessionData) {
                 selections: 0,
                 views: 1
             };
-            arrayOfSessionData.push(JSON.stringify(initData));
+            arrayOfSessionData.push(initData);
         // otherwise, increment views by 1
         } else {
             targetProduct.views++;
         }
     });
 }
-
