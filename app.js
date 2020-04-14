@@ -38,12 +38,12 @@ submitButton.addEventListener('click', () => {
 
     ////// otherwise, store value as product ID
     const selectedProductID = selectedInput.value;
-    console.log('selected product ID:\n' + selectedProductID);
+    // console.log('selected product ID:\n' + selectedProductID);
 
     // increment selected product in sessionData by 1
     const selectedProductData = findById(sessionData, selectedProductID);
     selectedProductData.selections++;
-    console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
+    // console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
 
     // update choiceCounter
     choiceCounter++;
@@ -74,5 +74,5 @@ submitButton.addEventListener('click', () => {
     // store newly-generated products in session data
     storeProductViews(randomIds, sessionData);
 
-    console.log(sessionData);
+    // console.log(sessionData);
 });
