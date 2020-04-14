@@ -8,6 +8,6 @@ const resultsContainer = document.getElementById('session-selections');
 // create elements to populate container
 parsedResults.forEach(result => {
     const p = document.createElement('p');
-    p.textContent = `${result.id}: viewed ${result.views} times, selected ${result.selections} times`;
+    p.textContent = `${result.name}: viewed ${result.views} times, selected ${result.selections} times`;
     resultsContainer.appendChild(p);
 });

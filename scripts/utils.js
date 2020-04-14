@@ -1,4 +1,5 @@
 import findById from './find-by-id.js';
+import listOfAllProducts from '../data/product-list.js';
 
 export function storeProductViews(arrayOfIds, arrayOfSessionData) {
     arrayOfIds.forEach(productId => {
@@ -8,8 +9,11 @@ export function storeProductViews(arrayOfIds, arrayOfSessionData) {
         // check if target product already exists as a tracked item in session data array
         // if target product has no tracking data for the session (findById returns null), initialize tracking data
         if (!targetProduct) {
+            const origProduct = findById(listOfAllProducts, productId);
+
             const initData = {
                 id: productId,
+                name: origProduct.name,
                 selections: 0,
                 views: 1
             };

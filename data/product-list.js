@@ -37,7 +37,7 @@ const listOfAllProducts = [
     {
         id: 'P08',
         image: 'assets/cthulhu.jpg',
-        name: 'cute-thulhu'
+        name: 'Cute-thulhu'
     },
     {
         id: 'P09',
@@ -72,7 +72,7 @@ const listOfAllProducts = [
     {
         id: 'P15',
         image: 'assets/sweep.png',
-        name: 'sweep'
+        name: 'Sweepin\' Spawn'
     },
     {
         id: 'P16',

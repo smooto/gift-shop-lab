@@ -50,14 +50,13 @@ submitButton.addEventListener('click', () => {
     remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
     // if choiceCounter is greater than 25, stop survey and redirect
     if (choiceCounter > 25) {
-        // otherwise, if 25 choices have been made at this point,
         // disable button
         submitButton.disabled = true;
         // set localStorage to reflect sessionData
         let stringySessionData = JSON.stringify(sessionData);
         localStorage.setItem('results', stringySessionData);
         // and redirect to results page
-        window.location.href = 'results.html';
+        window.location.replace('results.html');
     }
 
     // otherwise, continue with survey
