@@ -7,27 +7,32 @@
 </head>
 <body>
     <h1>Survey Results</h1>
-    <table>
-        <thead>
-            <th>
-                Product ID
-            </th>
-            <th>
-                Product Name
-            </th>
-            <th>
-                # times selected
-            </th>
-            <th>
-                # times viewed
-            </th>
-        </thead>
-        <tbody id="session-selections">
-            <!-- to be populated by JS -->
-        </tbody>
-    </table>
-
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <section>
+        <table>
+            <thead>
+                <th>
+                    Product ID
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    # times selected
+                </th>
+                <th>
+                    # times viewed
+                </th>
+            </thead>
+            <tbody id="session-selections">
+                <!-- to be populated by JS -->
+            </tbody>
+        </table>
+    </section>
+    
+    <section>
+        <h2>Chart</h2>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </section>
 
     <script type="module" src="./results-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

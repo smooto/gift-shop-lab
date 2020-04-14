@@ -38,31 +38,33 @@ parsedResults.forEach(result => {
 ////// chart
 
 const labelsArray = parsedResults.map(result => result.name);
-const dataArray = parsedResults.map(result => result.selections);
+const viewsArray = parsedResults.map(result => result.views);
+const selectionsArray = parsedResults.map(result => result.selections);
 
 const ctx = document.getElementById('myChart').getContext('2d');
 new Chart(ctx, {
-    type: 'bar',
+    type: 'radar',
     data: {
         labels: labelsArray,
         datasets: [{
-            label: 'number of times selected',
-            data: dataArray,
+            label: 'number of times viewed',
+            data: viewsArray,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'number of times selected',
+            data: selectionsArray,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
             ],
             borderWidth: 1
         }]
