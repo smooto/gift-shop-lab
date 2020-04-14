@@ -34,9 +34,41 @@ submitButton.addEventListener('click', () => {
     if (choiceCounter > 25) {
         // disable button
         submitButton.disabled = true;
+
         // set localStorage to reflect sessionData
         let stringySessionData = JSON.stringify(sessionData);
         localStorage.setItem('results', stringySessionData);
+
+        ////// set localStorage to track data from all sessions
+        const allResultsRaw = localStorage.getItem('allResults');
+        const allResultsParsed = JSON.parse(allResultsRaw);
+
+        let allSessionsData = [];
+
+        if (!allResultsParsed) { 
+            allSessionsData = sessionData.slice(); 
+        } else { 
+            allSessionsData = allResultsParsed;
+            
+            // determine whether current session contains previously untracked items
+            sessionData.forEach(currentResult => {
+                let totalResult = findById(allSessionsData, currentResult.id);
+                if (!totalResult) {
+                    // if item hasn't been previously tracked, initialize it with this session's data
+                    totalResult = currentResult;
+                    allSessionsData.push(totalResult);
+                } else {
+                    // otherwise, add totals from this session to the grand total
+                    totalResult.selections += currentResult.selections;
+                    totalResult.views += currentResult.views;
+                }
+            });
+        }
+
+        const allResultsStringy = JSON.stringify(allSessionsData);
+        localStorage.setItem('allResults', allResultsStringy);
+
+
         // and redirect to results page
         window.location.replace('results.html');
     }
