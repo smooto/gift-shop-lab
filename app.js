@@ -30,6 +30,19 @@ storeProductViews(randomIds, sessionData);
 
 // submission & regeneration
 submitButton.addEventListener('click', () => {
+    // if choiceCounter is greater than 25, stop survey and redirect
+    if (choiceCounter > 25) {
+        // disable button
+        submitButton.disabled = true;
+        // set localStorage to reflect sessionData
+        let stringySessionData = JSON.stringify(sessionData);
+        localStorage.setItem('results', stringySessionData);
+        // and redirect to results page
+        window.location.replace('results.html');
+    }
+
+    // otherwise, continue with survey
+
     // determine which product was selected, and retrieve its ID
     const selectedInput = document.querySelector('input[type=radio]:checked');
 
@@ -48,18 +61,6 @@ submitButton.addEventListener('click', () => {
     // update choiceCounter
     choiceCounter++;
     remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
-    // if choiceCounter is greater than 25, stop survey and redirect
-    if (choiceCounter > 25) {
-        // disable button
-        submitButton.disabled = true;
-        // set localStorage to reflect sessionData
-        let stringySessionData = JSON.stringify(sessionData);
-        localStorage.setItem('results', stringySessionData);
-        // and redirect to results page
-        window.location.replace('results.html');
-    }
-
-    // otherwise, continue with survey
 
     // remove existing inputs
     while (containerDiv.firstChild) {
