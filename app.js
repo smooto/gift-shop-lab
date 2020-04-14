@@ -1,7 +1,13 @@
+import listOfAllProducts from './data/product-list.js';
 import { renderAllInputs } from './scripts/render-elements.js';
+import { selectRandomIds } from './scripts/select-random.js';
 
-// generate random product
+// generate array of random IDs
 
-// find ID of a given product
+const randomIds = selectRandomIds(listOfAllProducts);
 
-renderAllInputs(['P01', 'P02', 'P03']);
+console.log(randomIds);
+
+// create and render inputs based on array of random IDs
+
+renderAllInputs(randomIds);
