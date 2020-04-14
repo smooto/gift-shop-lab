@@ -30,11 +30,8 @@ function createInputElement(productId) {
     return label;
 }
 
-export function renderAllInputs(arrayOfIds) {
-    // get container div from DOM
-    const containerDiv = document.getElementById('product-choices');
-
-    // call function for each product ID to create inputs
+export function renderAllInputs(arrayOfIds, containerDiv) {
+    // call function for each product ID to create inputs & populate container
     arrayOfIds.forEach(id => {
         const inputElement = createInputElement(id);
         containerDiv.appendChild(inputElement);
