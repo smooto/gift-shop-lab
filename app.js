@@ -1,10 +1,10 @@
 import listOfAllProducts from './data/product-list.js';
 import { renderAllInputs } from './scripts/render-elements.js';
-import { selectRandomIds } from './scripts/select-random.js';
+import { selectRandomProducts } from './scripts/select-random.js';
 
 // generate array of random IDs
 
-const randomIds = selectRandomIds(listOfAllProducts);
+const randomIds = selectRandomProducts(listOfAllProducts);
 
 console.log(randomIds);
 
