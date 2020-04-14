@@ -18,19 +18,13 @@ remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
 
 const sessionData = [];
 
-// const productsSelected = []; // tracks the specific choices made by the user in this session
-
-// const productsViewed = []; // tracks the specific products viewed by the user in this session
-
 // initialize page with random selection of products
 // create and render inputs based on array of random IDs
 const randomIds = selectRandomProducts(listOfAllProducts);
-console.log(randomIds);
 renderAllInputs(randomIds, containerDiv);
 
 // add all IDs to productsViewed
 storeProductViews(randomIds, sessionData);
-console.log('products viewed:\n' + sessionData);
 
 ////////////////////
 
@@ -51,9 +45,22 @@ submitButton.addEventListener('click', () => {
     selectedProductData.selections++;
     console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
 
-    // increment choiceCounter
+    // update choiceCounter
     choiceCounter++;
     remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
+    // if choiceCounter is greater than 25, stop survey and redirect
+    if (choiceCounter > 5) {
+        // otherwise, if 25 choices have been made at this point,
+        // disable button
+        submitButton.disabled = true;
+        // set localStorage to reflect sessionData
+        let stringySessionData = JSON.stringify(sessionData);
+        localStorage.setItem('results', stringySessionData);
+        // and redirect to results page
+        window.location.href = 'results.html';
+    }
+
+    // otherwise, continue with survey
 
     // remove existing inputs
     while (containerDiv.firstChild) {
