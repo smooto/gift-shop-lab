@@ -1,13 +1,27 @@
-// get session selection from local storage
-const rawResults = localStorage.getItem('results');
-const parsedResults = JSON.parse(rawResults);
+import { createResultsTable, createRadarChart } from './scripts/data-viz.js';
 
-// get results container from DOM
-const resultsContainer = document.getElementById('session-selections');
+// get session data from local storage
+const rawSessionResults = localStorage.getItem('results');
+const parsedSessionResults = JSON.parse(rawSessionResults);
 
-// create elements to populate container
-parsedResults.forEach(result => {
-    const p = document.createElement('p');
-    p.textContent = `${result.name}: viewed ${result.views} times, selected ${result.selections} times`;
-    resultsContainer.appendChild(p);
-});
+const rawAllSessionsResults = localStorage.getItem('allResults');
+const parsedAllSessionsResults = JSON.parse(rawAllSessionsResults);
+
+// get results containers from DOM
+const thisSessionTable = document.getElementById('this-session-table');
+const thisSessionChart = document.getElementById('this-session-chart');
+
+const allSessionsTable = document.getElementById('all-sessions-table');
+const allSessionsChart = document.getElementById('all-sessions-chart');
+
+////// tables
+
+createResultsTable(parsedSessionResults, thisSessionTable);
+
+createResultsTable(parsedAllSessionsResults, allSessionsTable);
+
+////// charts
+
+createRadarChart(parsedSessionResults, thisSessionChart);
+
+createRadarChart(parsedAllSessionsResults, allSessionsChart);
