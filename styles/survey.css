@@ -1,0 +1,44 @@
+/* sizing & arrangement */
+
+#product-choices {
+    width: 75vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#product-choices img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: left;
+    border: 1px solid black;
+}
+
+/* product selection panache */
+
+input[type=radio] {
+    visibility: hidden;
+}
+
+input[type=radio]:checked + img {
+    box-shadow: 0 0 0 5px #e2a744;
+}
+
+/* panache for choice counter, to separate from other p elements */
+
+#choices-remaining {
+    margin: 1.5em auto 0 auto;
+    font-weight: bold;
+}
+
+/* button */
+
+button {
+    background-color: #ffc2bb;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 1em;
+}

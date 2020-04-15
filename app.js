@@ -14,7 +14,7 @@ const submitButton = document.getElementById('submit-choice'); // button to exec
 // initialize page states, to be reset on reload
 
 let choiceCounter = 0; // tracks the total number of choices made
-remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
+remainingChoices.textContent = `${25 - choiceCounter}/25 choices remaining`;
 
 const sessionData = [];
 
@@ -30,6 +30,25 @@ storeProductViews(randomIds, sessionData);
 
 // submission & regeneration
 submitButton.addEventListener('click', () => {
+    // determine which product was selected, and retrieve its ID
+    const selectedInput = document.querySelector('input[type=radio]:checked');
+
+    ////// if nothing selected, return error
+    if (selectedInput === null) { alert('Choose a product!'); }
+
+    ////// otherwise, store value as product ID
+    const selectedProductID = selectedInput.value;
+    // console.log('selected product ID:\n' + selectedProductID);
+
+    // increment selected product in sessionData by 1
+    const selectedProductData = findById(sessionData, selectedProductID);
+    selectedProductData.selections++;
+    // console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
+
+    // update choiceCounter
+    choiceCounter++;
+    remainingChoices.textContent = `${25 - choiceCounter}/25 choices remaining`;
+
     // if choiceCounter is greater than 25, stop survey and redirect
     if (choiceCounter > 25) {
         // disable button
@@ -74,25 +93,6 @@ submitButton.addEventListener('click', () => {
     }
 
     // otherwise, continue with survey
-
-    // determine which product was selected, and retrieve its ID
-    const selectedInput = document.querySelector('input[type=radio]:checked');
-
-    ////// if nothing selected, return error
-    if (selectedInput === null) { alert('Choose a product!'); }
-
-    ////// otherwise, store value as product ID
-    const selectedProductID = selectedInput.value;
-    // console.log('selected product ID:\n' + selectedProductID);
-
-    // increment selected product in sessionData by 1
-    const selectedProductData = findById(sessionData, selectedProductID);
-    selectedProductData.selections++;
-    // console.log(`${selectedProductData.id} has been selected ${selectedProductData.selections} times`);
-
-    // update choiceCounter
-    choiceCounter++;
-    remainingChoices.textContent = `${25 - choiceCounter} choices remaining`;
 
     // remove existing inputs
     while (containerDiv.firstChild) {
