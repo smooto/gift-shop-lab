@@ -20,3 +20,7 @@ h1, h2, h3 {
 body, label, button {
     font-family: 'Comfortaa';
 }
+
+a, a:visited {
+    color: #367b88;
+}
