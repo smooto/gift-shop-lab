@@ -33,41 +33,42 @@ export function createRadarChart(arrayOfResults, parentCanvas) {
     const viewsArray = arrayOfResults.map(result => result.views);
     const selectionsArray = arrayOfResults.map(result => result.selections);
 
+    Chart.defaults.global.defaultFontFamily= "Comfortaa";
     const ctx = parentCanvas.getContext('2d');
     new Chart(ctx, {
         type: 'radar',
         data: {
             labels: labelsArray,
             datasets: [{
-                label: 'number of times viewed',
-                data: viewsArray,
+                label: 'number of times selected',
+                data: selectionsArray,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)'
+                    'rgba(255, 194, 187, 0.5)'
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)'
+                    'rgba(255, 194, 187, 1)'
                 ],
                 borderWidth: 1
             },
             {
-                label: 'number of times selected',
-                data: selectionsArray,
+                label: 'number of times viewed',
+                data: viewsArray,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
+                    'rgba(199, 232, 238, 0.5)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)'
+                    'rgb(199, 232, 238, 1)'
                 ],
                 borderWidth: 1
             }]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    stepSize: 1
+                }
             }
         }
     });
