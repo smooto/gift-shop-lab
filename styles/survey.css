@@ -12,7 +12,8 @@
 #product-choices img {
     width: 250px;
     height: 250px;
-    object-fit: contain;
+    object-fit: cover;
+    border: 1px solid black;
 }
 
 /* product selection panache */
@@ -22,7 +23,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked + img {
-    border: 2px solid red;
+    box-shadow: 0 0 10px black;
 }
 
 /* panache for choice counter, to separate from other p elements */

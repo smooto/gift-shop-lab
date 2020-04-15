@@ -1,0 +1,11 @@
+.viz-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.chart-wrapper {
+    height: 50%;
+    width: 50%;
+}
