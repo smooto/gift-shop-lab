@@ -28,5 +28,15 @@ input[type=radio]:checked + img {
 /* panache for choice counter, to separate from other p elements */
 
 #choices-remaining {
+    margin: 1.5em auto 0 auto;
     font-weight: bold;
+}
+
+/* button */
+
+button {
+    background-color: #ffc2bb;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 1em;
 }
