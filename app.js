@@ -84,11 +84,6 @@ submitButton.addEventListener('click', () => {
             });
         }
 
-        // remove existing inputs
-        while (containerDiv.firstChild) {
-            containerDiv.removeChild(containerDiv.firstChild);
-        }
-
         const allResultsStringy = JSON.stringify(allSessionsData);
         localStorage.setItem('allResults', allResultsStringy);
 
@@ -98,6 +93,11 @@ submitButton.addEventListener('click', () => {
     }
 
     // otherwise, continue with survey
+
+    // remove existing inputs
+    while (containerDiv.firstChild) {
+        containerDiv.removeChild(containerDiv.firstChild);
+    }
     
     // generate new inputs
     const randomIds = selectRandomProducts(listOfAllProducts);

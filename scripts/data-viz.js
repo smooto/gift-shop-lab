@@ -3,10 +3,6 @@ export function createResultsTable(arrayOfResults, parentTable) {
         // row
         const tableRow = document.createElement('tr');
     
-        // ID
-        const tdProdId = document.createElement('td');    
-        tdProdId.textContent = result.id;
-    
         // name
         const tdProdName = document.createElement('td');    
         tdProdName.textContent = result.name;
@@ -19,7 +15,6 @@ export function createResultsTable(arrayOfResults, parentTable) {
         const tdViews = document.createElement('td');    
         tdViews.textContent = result.views;
         
-        tableRow.appendChild(tdProdId);
         tableRow.appendChild(tdProdName);
         tableRow.appendChild(tdSelections);
         tableRow.appendChild(tdViews);
