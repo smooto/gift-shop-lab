@@ -1,0 +1,32 @@
+/* sizing & arrangement */
+
+#product-choices {
+    width: 75vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#product-choices img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+/* product selection panache */
+
+input[type=radio] {
+    visibility: hidden;
+}
+
+input[type=radio]:checked + img {
+    border: 2px solid red;
+}
+
+/* panache for choice counter, to separate from other p elements */
+
+#choices-remaining {
+    font-weight: bold;
+}
