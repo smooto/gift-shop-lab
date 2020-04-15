@@ -50,7 +50,7 @@ submitButton.addEventListener('click', () => {
     remainingChoices.textContent = `${25 - choiceCounter}/25 choices remaining`;
 
     // if choiceCounter is greater than 25, stop survey and redirect
-    if (choiceCounter > 25) {
+    if (choiceCounter >= 25) {
         // disable button
         submitButton.disabled = true;
 
