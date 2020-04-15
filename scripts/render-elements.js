@@ -13,16 +13,16 @@ function createInputElement(productId) {
     input.name = 'product';
     input.value = productId;
 
-    // create & populate `p` to reflect product name
-    const p = document.createElement('p');
-    p.textContent = productObject.name;
+    // create & populate `h3` to reflect product name
+    const h3 = document.createElement('h3');
+    h3.textContent = productObject.name;
 
     // create & source `img` to reflect product image
     const img = document.createElement('img');
     img.src = productObject.image;
 
     // append p, input, and image to label
-    label.appendChild(p);
+    label.appendChild(h3);
     label.appendChild(input);
     label.appendChild(img);
 

@@ -33,7 +33,7 @@ export function createRadarChart(arrayOfResults, parentCanvas) {
     const viewsArray = arrayOfResults.map(result => result.views);
     const selectionsArray = arrayOfResults.map(result => result.selections);
 
-    Chart.defaults.global.defaultFontFamily= "Comfortaa";
+    Chart.defaults.global.defaultFontFamily = 'Comfortaa';
     const ctx = parentCanvas.getContext('2d');
     new Chart(ctx, {
         type: 'radar',

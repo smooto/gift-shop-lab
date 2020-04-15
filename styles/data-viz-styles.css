@@ -9,3 +9,16 @@
     height: 50%;
     width: 50%;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ffc2bb;
+}
+
+thead {
+    background-color: #ffc2bb;
+}
+
+th, td {
+    padding: 10px;
+}
