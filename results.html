@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/data-viz-styles.css">
+    <title>Survey Results</title>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <header>
+            <h1>Consumer Interest Survey</h1>
+            <p>
+                Thank you again for your help! Please find the survey results below.
+            </p>
+            <p>
+                Many marketing firms would consider this data to be "valuable trade secrets," but we here at Smoot & Associates value <em>transparency</em>, <em>collaboration</em>, and <em>extremely low overhead</em> over data security and/or information architecture of any kind.
+            </p>
+            <p>
+                Click <a href="/">here</a> to take the survey again!
+            </p>
+        </header>
+
+        <main>
+            <h2>Results from your survey</h2>
+            <section id="this-session" class="viz-section">
+                
+                <table>
+                    <thead>
+                        <th>
+                            Product Name
+                        </th>
+                        <th>
+                            # times selected
+                        </th>
+                        <th>
+                            # times viewed
+                        </th>
+                    </thead>
+                    <tbody id="this-session-table">
+                        <!-- to be populated by JS -->
+                    </tbody>
+                </table>
+                
+                <div class="chart-wrapper">
+                    <canvas id="this-session-chart" width="400" height="400"></canvas>
+                </div>
+        
+            </section>
+
+            <hr />
+        
+            <h2>Results from all surveys</h2>
+            <section id="all-sessions" class="viz-section">
+        
+                <table>
+                    <thead>
+                        <th>
+                            Product Name
+                        </th>
+                        <th>
+                            # times selected
+                        </th>
+                        <th>
+                            # times viewed
+                        </th>
+                    </thead>
+                    <tbody id="all-sessions-table">
+                        <!-- to be populated by JS -->
+                    </tbody>
+                </table>
+
+                <div class="chart-wrapper">
+                    <canvas id="all-sessions-chart" width="400" height="400"></canvas>
+                </div>
+            
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                M. Smoot, 2020
+            </p>
+            <p>
+                Background image by <a href="https://www.rawpixel.com/aum/showcase?sort=curated&mode=shop&page=1">Aum</a>, via RawPixel
+            </p>
+            <p>
+                View this project on <a href="https://github.com/smooto/gift-shop-lab">GitHub</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script type="module" src="./results-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</body>
+</html>

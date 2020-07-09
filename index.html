@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/common.css"> <!-- core styling -->
+    <link rel="stylesheet" href="./styles/survey.css"> <!-- styles for survey -->
+    <title>Survey</title>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <header>
+            <h1>Consumer Interest Survey</h1>
+        </header>
+
+        <main>
+            <section id="intro">
+                <p>
+                    Hi there, and thank you for agreeing to participate in this survey!<sup>*</sup> Our client has partnered with Smoot & Associates' marketing team to help them tailor their catalog of hilarious, novelty gifts to reflect the values and tastes of a changing customer base.
+                </p>
+                <p>
+                    Each round, we'll display three, randomly-generated products from the store's catalog. Please select your favorite and/or least-disliked product of the three, then click "Submit Choice" to confirm your pick and proceed to the next round.
+                </p>
+                <p>
+                    After you've made 25 choices, you'll be redirected to the results page, where you can see the data from your survey, as well as the data from all surveys collected up to that point, including yours.
+                </p>
+                <p>
+                    Happy clicking!
+                </p>
+                <small>
+                    <sup>*</sup> By opening this page, you have agreed to participate in this survey. If you do not complete the survey in full, Smoot & Associates <em>will</em> know, and we <em>will</em> find you.
+                </small>
+            </section>
+
+            <hr />
+
+            <section id="survey">
+                <p id="choices-remaining">
+                    <!-- text generated in JS -->
+                </p>
+                <div id="product-choices">
+                    <!-- inputs generated in JS -->
+                </div>
+                <button id="submit-choice">Submit Choice</button>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>
+                M. Smoot, 2020
+            </p>
+            <p>
+                Background image by <a href="https://www.rawpixel.com/aum/showcase?sort=curated&mode=shop&page=1">Aum</a>, via RawPixel
+            </p>
+            <p>
+                View this project on <a href="https://github.com/smooto/gift-shop-lab">GitHub</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
